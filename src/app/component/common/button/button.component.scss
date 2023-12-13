@@ -1,0 +1,32 @@
+@import 'styles/variables';
+
+.btn {
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+.btn.btn-ghost-primary {
+  color: $ng-color-primary;
+  border-color: transparent;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.btn.btn-outline-primary {
+  color: $ng-color-primary;
+  border-color: $ng-color-primary;
+
+  &:hover {
+    background-color: $ng-color-primary;
+    color: #fff;
+  }
+}
+
+.btn.btn-primary {
+  background-color: $ng-color-primary;
+  border-color: $ng-color-primary;
+  color: #fff;
+}

@@ -1,0 +1,93 @@
+<header class='sticky-top'>
+  <c-navbar expand='lg'>
+    <c-container breakpoint='xxl'>
+      <a cNavbarBrand class='me-4' [routerLink]='RootPath.Home'>
+        <img cImg fluid src='assets/logo-red.png' alt='techcell-logo'>
+      </a>
+      <button [cNavbarToggler]='' cOffcanvasToggle='OffcanvasSidebar'>
+        <svg [cIcon]='icons.cilAlignRight' size='lg' title='search'></svg>
+      </button>
+      <c-offcanvas
+        placement='start'
+        id='OffcanvasSidebar'
+      >
+        <c-offcanvas-header>
+          <a cNavbarBrand>
+            <img cImg fluid src='assets/logo-red.png' alt='techcell-logo'>
+          </a>
+          <button
+            cButtonClose
+            class='text-reset'
+            cOffcanvasToggle='OffcanvasSidebar'
+            aria-label='Close'
+            white
+          ></button>
+        </c-offcanvas-header>
+        <c-offcanvas-body>
+          <div class='d-flex flex-grow-1 align-items-center justify-content-between'>
+            <c-navbar-nav>
+              <div *ngFor='let link of links'>
+                <c-nav-item *ngIf='!link.children'>
+                  <a cNavLink [active]='isActive(link.path)' [routerLink]=link.path>{{link.name}}</a>
+                </c-nav-item>
+
+                <c-dropdown *ngIf='link.children' variant='nav-item' [popper]='false'>
+                  <a cDropdownToggle cNavLink>{{link.name}}</a>
+                  <ul cDropdownMenu>
+                    <li *ngFor='let child of link.children'>
+                      <a cDropdownItem [routerLink]='child.path'>{{ child.name }}</a>
+                    </li>
+                  </ul>
+                </c-dropdown>
+              </div>
+            </c-navbar-nav>
+
+            <div class='d-flex align-items-center gap-4'>
+              <button class='button-icons' cTooltip='Tìm kiếm'>
+                <svg [cIcon]='icons.cilSearch' size='xl' title='search'></svg>
+              </button>
+              <button class='button-icons position-relative' cTooltip='Thông báo'>
+                <c-badge color='danger' position='top-end' shape='rounded-3'>2</c-badge>
+                <svg [cIcon]='icons.cilBell' size='xl' title='notification'></svg>
+              </button>
+
+              <c-dropdown direction='center' *ngIf='user$ | async as user; else accountBtn'>
+                <button class='button-avatar' cDropdownToggle>
+                  <img [src]='user.avatar.url' alt='img-avatar'>
+                </button>
+                <div class='button-avatar-dropdown' cDropdownMenu>
+                  <h6>{{user.firstName + ' ' + user.lastName}}</h6>
+                  <span>{{user.role}}</span>
+                  <div class='divider'>
+                    <hr>
+                  </div>
+                  <ul>
+                    <li>
+                      <a cDropdownItem routerLink=''>
+                        <fa-icon class='d-inline-block' [icon]='icons.faUser' size='lg' style='width: 35px'></fa-icon>
+                        Hồ sơ
+                      </a>
+                    </li>
+                    <li>
+                      <a cDropdownItem (click)='onLogout()'>
+                        <fa-icon class='d-inline-block' [icon]='icons.faRightFromBracket' size='lg'
+                                 style='width: 35px'></fa-icon>
+                        Đăng xuất
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </c-dropdown>
+              <ng-template #accountBtn>
+                <button class='button-icons' cTooltip='Tài khoản' (click)='redirect(RootPath.Login)'>
+                  <svg [cIcon]='icons.cilUser' size='xl' title='account'></svg>
+                </button>
+              </ng-template>
+            </div>
+          </div>
+        </c-offcanvas-body>
+      </c-offcanvas>
+    </c-container>
+  </c-navbar>
+</header>
+

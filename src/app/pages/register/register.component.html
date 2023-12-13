@@ -1,0 +1,37 @@
+<main class='register mb-4'>
+  <section class='register-form'>
+    <div class='register-form-title'>
+      <h2>Đăng ký</h2>
+      <span>Tạo tài khoản để cùng đồng hành, trải nghiệm với Techcell !</span>
+    </div>
+
+    <form class='register-form-input'>
+      <c-row [gutter]='{gx: 4, gy: 3}'>
+        <c-col xs='6'>
+          <app-text-field name='lastName' label='Họ'></app-text-field>
+        </c-col>
+        <c-col xs='6'>
+          <app-text-field name='firstName' label='Tên'></app-text-field>
+        </c-col>
+        <c-col xs='12'>
+          <app-text-field name='email' label='Email'></app-text-field>
+        </c-col>
+        <c-col xs='12'>
+          <app-text-field name='password' label='Mật khẩu'></app-text-field>
+        </c-col>
+        <c-col xs='12'>
+          <app-text-field name='re_password' label='Nhập lại mật khẩu'></app-text-field>
+        </c-col>
+      </c-row>
+
+      <div class='d-flex justify-content-center mt-4'>
+        <app-button class='fw-semibold'>Đăng ký</app-button>
+      </div>
+    </form>
+
+    <div class='d-flex align-items-center justify-content-center gap-1 w-100 mt-2'>
+      <p class='fw-medium'>Bạn đã có tài khoản?</p>
+      <a class='btn-login' [routerLink]='RootPath.Login'>Đăng nhập</a>
+    </div>
+  </section>
+</main>

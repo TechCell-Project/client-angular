@@ -1,0 +1,49 @@
+@mixin responsive($breakpoint) {
+  @if $breakpoint == min_sm {
+    @media (min-width: $ng-breakpoint-sm) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == max_sm {
+    @media (max-width: $ng-breakpoint-sm) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == min_md {
+    @media (min-width: $ng-breakpoint-md) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == max_md {
+    @media (max-width: $ng-breakpoint-md) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == min_lg {
+    @media (min-width: $ng-breakpoint-lg) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == max_lg {
+    @media (max-width: $ng-breakpoint-lg) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == min_xl {
+    @media (min-width: $ng-breakpoint-xl) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==max_xl {
+    @media (max-width: $ng-breakpoint-xl) {
+      @content;
+    }
+  }
+}

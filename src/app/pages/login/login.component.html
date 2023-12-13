@@ -1,0 +1,104 @@
+<main class='login mb-4'>
+  <section class='login-form'>
+    <div class='login-form-title'>
+      <h2>Đăng nhập</h2>
+      <span>Chào mừng bạn đến với Techcell !</span>
+    </div>
+
+    <form novalidate [formGroup]="patientForm">
+      <div class="form-group" *ngIf="patientForm.controls['name'] as name">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <div *ngIf="showError('name')" class="errorMessage">
+          <ng-container *ngIf='name.errors as error'>
+            <div *ngIf='error?.["required"]'>Bắt buộc</div>
+            <div *ngIf='error?.["email"]'>Bắt buộc email</div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" (click)="onSubmit()">Submit</button>
+      </div>
+    </form>
+
+    <form class='login-form-input' [formGroup]='loginForm' (ngSubmit)='handleSubmitLogin()'>
+      <div class='mb-2' *ngIf="loginForm.controls['emailOrUsername'] as emailOrUsername">
+        <label cLabel for='emailOrUsername'>Tài khoản hoặc email</label>
+        <input
+          cFormControl
+          id='emailOrUsername'
+          formControlName='emailOrUsername'
+        />
+        <div
+          *ngIf="emailOrUsername.invalid && (emailOrUsername.dirty || emailOrUsername.touched)"
+          class="alert"
+        >
+          <div *ngIf="emailOrUsername.errors?.['required']">Name is required.</div>
+
+        </div>
+<!--        <c-form-feedback *ngIf='emailOrUsername.invalid' [valid]='!emailOrUsername.invalid'>-->
+<!--          <ng-container *ngIf='emailOrUsername.errors as errors'>-->
+<!--            <div *ngIf="errors?.['required']">Last Name is required</div>-->
+<!--          </ng-container>-->
+<!--        </c-form-feedback>-->
+        <!--        <app-text-field-->
+        <!--          name='emailOrUsername'-->
+        <!--          [control]="emailOrUsername | formControl"-->
+        <!--          label='Tài khoản hoặc email'-->
+        <!--          [required]='true'-->
+        <!--        >-->
+        <!--          <div *ngIf="emailOrUsername.invalid">-->
+        <!--            <ng-container *ngIf="emailOrUsername.errors as errors">-->
+        <!--              <div *ngIf="errors?.['required']">emailOrUsername is required</div>-->
+        <!--            </ng-container>-->
+        <!--          </div>-->
+        <!--        </app-text-field>-->
+      </div>
+      <div class='mb-2'>
+        <app-text-field
+          name='password'
+          [control]="loginForm.controls['password'] | formControl"
+          label='Mật khẩu'
+          type='password'
+          [required]='true'
+        >
+        </app-text-field>
+      </div>
+      <div class='d-flex justify-content-between mb-3'>
+        <div class='d-flex align-items-center gap-1'>
+          <p>Bạn chưa có tài khoản?</p>
+          <a class='btn-register' [routerLink]='RootPath.Register'>Đăng ký</a>
+        </div>
+        <app-button
+          variant='ghost'
+          class='p-0 text-decoration-underline'
+        >
+          Quên mật khẩu?
+        </app-button>
+      </div>
+      <div class='d-flex justify-content-center mb-3'>
+        <app-button
+          class='fw-semibold'
+          [type]='"submit"'
+          [disabled]='!!(isLoading$ | async)'
+          [loading]='!!(isLoading$ | async)'
+        >
+          Đăng nhập
+        </app-button>
+      </div>
+    </form>
+    <div class='d-flex flex-column justify-content-center align-items-center gap-4'>
+      <div class='login-with'>
+        <div class='divide'></div>
+        <p class='login-with-text'>Hoặc đăng nhập bằng</p>
+        <div class='divide'></div>
+      </div>
+      <div class='login-socials'>
+        <fa-icon [icon]='icons.faGoogle'></fa-icon>
+        <span>Đăng nhập với Google</span>
+      </div>
+    </div>
+  </section>
+</main>
+

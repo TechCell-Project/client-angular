@@ -1,0 +1,18 @@
+@import 'styles/variables';
+
+.form {
+  &-label {
+    margin-bottom: .3rem;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &-control {
+    border-radius: 5px;
+
+    &:focus {
+      box-shadow: unset;
+      border-color: $ng-color-primary;
+    }
+  }
+}

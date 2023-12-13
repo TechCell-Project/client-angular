@@ -1,0 +1,35 @@
+<footer>
+  <c-container breakpoint='xxl'>
+    <div class='app-footer'>
+      <div class='left'>
+        <img cImg fluid src='assets/logo-red.png' alt='techcell-logo' [style.max-width]="'150px'">
+        <span>Tận hưởng Cuộc Sống Kỹ Thuật Số với Techcell - Nơi Nâng Tầm Trải Nghiệm Điện Thoại.
+          Sự hoàn hảo gặp gỡ thiết kế đẳng cấp, để mỗi cuộc gọi, mỗi cử chỉ đều trở thành một trải nghiệm không thể quên.
+          Khám phá ngay với Techcell - Nơi Thăng Hoa Công Nghệ!</span>
+      </div>
+      <div class='right'>
+        <div *ngFor='let expand of expands'>
+          <h5>{{expand.title}}</h5>
+          <ul>
+            <li *ngFor='let item of expand.children'>
+              <a>{{item.title}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class='app-footer-divide'>
+
+    <div class='d-flex align-items-center justify-content-between mb-4'>
+      <p style='font-size: 15px'>© 2023, made with ❤️ by <b>Techcell Team</b></p>
+      <div class='d-flex align-items-center gap-4'>
+        <a style='font-size: 15px;font-weight: 600' target='_blank' href='https://admin.techcell.cloud/'>Admin</a>
+        <a style='font-size: 15px;font-weight: 600' target='_blank' href='https://techcell.cloud/'>Website</a>
+        <a style='font-size: 15px;font-weight: 600' target='_blank' href='https://docs.techcell.cloud/'>Document</a>
+        <a style='font-size: 15px;font-weight: 600' href='mailto:teams@techcell.cloud'>Contact</a>
+      </div>
+    </div>
+  </c-container>
+</footer>
+

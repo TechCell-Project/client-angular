@@ -1,0 +1,67 @@
+<main>
+  <p class='home-slogan'>Upgrade Your Connectivity: Smart Deals, Smarter Phones!</p>
+
+  <section class='home-carousel-banner'>
+    <c-carousel [interval]='0'>
+      <c-carousel-indicators></c-carousel-indicators>
+      <c-carousel-inner>
+        <c-carousel-item *ngFor='let slide of slides'>
+          <div
+            class='d-block w-100 h-100'
+            [style.background-image]="'url(' + slide.src + ')'"
+          >
+          </div>
+        </c-carousel-item>
+      </c-carousel-inner>
+      <c-carousel-control [routerLink] caption='Previous' direction='prev'></c-carousel-control>
+      <c-carousel-control [routerLink] caption='Next' direction='next'></c-carousel-control>
+    </c-carousel>
+  </section>
+
+  <c-container breakpoint='xxl'>
+    <section class='home-group-banner'>
+      <div class='banner-bg banner-item-left' [style.background-image]="'url(assets/apple-bg.jpg)'">
+        <div class='banner-content'>
+          <span>APPLE</span>
+          <h4>Đặc quyền sinh viên <br> giảm thêm 5% tối đa 300k</h4>
+          <a>Xem ngay &nbsp;<svg [cIcon]='icons.cilArrowRight' size='sm' title='search'></svg>
+          </a>
+        </div>
+      </div>
+      <div class='banner-item-right'>
+        <div class='banner-bg' [style.background-image]="'url(assets/samsung-bg.jpg)'">
+          <div class='banner-content'>
+            <span>SAMSUNG</span>
+            <h4>Tưng vừng lễ hội <br /> nhập hội galaxy tab series</h4>
+            <a>Xem ngay &nbsp;<svg [cIcon]='icons.cilArrowRight' size='sm' title='search'></svg>
+            </a>
+          </div>
+        </div>
+        <div class='banner-bg' [style.background-image]="'url(assets/product-bg.jpg)'">
+          <div class='banner-content'>
+            <span>Danh sách sản phẩm</span>
+            <h4>Mua ngay, săn deal <br /> hời với Techcell</h4>
+            <a>Xem ngay &nbsp;<svg [cIcon]='icons.cilArrowRight' size='sm' title='search'></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </c-container>
+
+  <section class='home-benefit'>
+    <c-container breakpoint='xxl'>
+      <div class='home-benefit-layout'>
+        <div class='d-flex align-items-center justify-content-center' *ngFor='let benefit of benefits'>
+          <div class='d-flex align-items-center gap-4'>
+            <fa-icon [icon]='benefit.icon' size='xl'></fa-icon>
+            <div class='d-flex flex-column'>
+              <b>{{benefit.title}}</b>
+              <span [style.font-size]="'14px'" [style.font-weight]='500'>{{benefit.desc}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </c-container>
+  </section>
+</main>

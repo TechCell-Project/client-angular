@@ -1,0 +1,13 @@
+<button
+  cButton
+  [disabled]='disabled'
+  [type]='type'
+  [class]='class'
+  [variant]='variant'
+  [ngStyle]='styles'
+  (click)='handleClick()'
+  color='primary'
+>
+  <ng-content></ng-content>
+  <c-spinner *ngIf='loading' aria-hidden='true' size='sm'></c-spinner>
+</button>

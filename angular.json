@@ -30,7 +30,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              {
+                "input": "node_modules/ngx-toastr/toastr.css"
+              },
+              {
+                "input": "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
+              },
+              {
+                "input": "node_modules/@coreui/coreui/dist/css/coreui.min.css"
+              },
+              "src/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -56,7 +65,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -93,9 +108,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss",
+              {
+                "input": "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
+              }
             ],
-            "scripts": []
+            "scripts": [],
+            "karmaConfig": "karma.conf.js"
           }
         }
       }

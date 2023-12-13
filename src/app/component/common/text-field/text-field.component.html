@@ -1,0 +1,17 @@
+<div [class]='class' class='w-100'>
+  <label cLabel for='{{name}}'>{{label}}</label>
+  <input cFormControl
+         [id]='name'
+         [type]='type'
+         [placeholder]='placeholder'
+         [required]='required'
+         [disabled]='disabled'
+         [formControl]='control'
+  />
+  <ng-content></ng-content>
+<!--  <ng-container *ngIf='control.errors && control.invalid'>-->
+<!--    <c-form-feedback *ngFor='let error of control.errors | keyvalue' [valid]='false'>-->
+<!--      Bắt buộcs-->
+<!--    </c-form-feedback>-->
+<!--  </ng-container>-->
+</div>

@@ -1,0 +1,39 @@
+@import "../../../styles/variables";
+
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-form {
+    padding: 40px 0;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &-title {
+      h2 {
+        font-weight: 600;
+      }
+
+      span {
+        font-size: 16px;
+        font-weight: 600;
+        opacity: 0.7;
+      }
+    }
+
+    //&-input {
+    //  display: flex;
+    //  flex-direction: column;
+    //  gap: 10px;
+    //}
+  }
+}
+
+.btn-login {
+  text-decoration: underline;
+  color: $ng-color-primary;
+  font-weight: 500;
+}
